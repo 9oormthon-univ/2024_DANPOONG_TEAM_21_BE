@@ -14,10 +14,14 @@ import com.jojoidu.book.easy.practice.exception.SolutionException;
 import com.jojoidu.book.easy.practice.repository.ProblemRepository;
 import com.jojoidu.book.easy.practice.repository.SolutionRepository;
 import com.jojoidu.book.easy.practice.repository.SolveResultRepository;
+import com.jojoidu.book.easy.user.exception.UserErrorCode;
+import com.jojoidu.book.easy.user.exception.UserException;
+import com.jojoidu.book.easy.user.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -27,7 +31,7 @@ public class PracticeService {
     private final ProblemRepository problemRepository;
     private final SolutionRepository solutionRepository;
     private final SolveResultRepository solveResultRepository;
-
+    private final UserRepository userRepository;
     public ProblemResponse getProblemByStoreId(Long storeId) {
         Problem problem = problemRepository.findByStoreId(storeId)
                 .orElseThrow(() -> new ProblemException(ProblemErrorCode.PROBLEM_NOT_FOUND));
@@ -35,7 +39,7 @@ public class PracticeService {
         return new ProblemResponse(problem.getId(), problem.getProblem());
     }
 
-    public PracticeSubmitResponse submitPractice(Long storeId, PracticeSubmitRequest request) {
+    public PracticeSubmitResponse submitPractice(Long userId, PracticeSubmitRequest request) {
         Solution solution = solutionRepository.findById(request.getProblemId())
                 .orElseThrow(() -> new SolutionException((SolutionErrorCode.SOLUTION_NOT_FOUND)));
 
@@ -46,6 +50,21 @@ public class PracticeService {
         boolean menuResult = gradeMenuNames(submittedMenus, correctMenus);
         boolean optionResult = gradeOptions(submittedMenus, correctMenus);
         boolean amountResult = gradeQuantities(submittedMenus, correctMenus);
+
+        // 현재 날짜를 문자열로 변환
+        LocalDateTime solvedDate = LocalDateTime.now();
+        Problem problem = problemRepository.findById(request.getProblemId()).orElseThrow();
+        // SolveResult 저장
+        SolveResult solveResult = SolveResult.builder()
+            .user(userRepository.findById(userId).orElseThrow(() -> new UserException(UserErrorCode.USER_NOT_FOUND))) // User 객체를 받아서 저장
+            .problem(problem) // Solution의 Problem 정보 매핑
+            .menuResult(menuResult)
+            .optionResult(optionResult)
+            .amountResult(amountResult)
+            .solvedDate(solvedDate)
+            .build();
+
+        solveResultRepository.save(solveResult);
 
         // 결과 반환
         return new PracticeSubmitResponse(

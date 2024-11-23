@@ -34,11 +34,8 @@ public class PracticeController {
     @PostMapping("/{storeId}/submit")
     @Operation(summary = "실습 채점", description = "주어진 메뉴와 옵션, 수량을 기준으로 실습 채점을 수행합니다.")
     public ResponseEntity<ApiResponse<PracticeSubmitResponse>> submitPractice(
-            @Parameter(description = "Store ID", example = "1") @PathVariable Long storeId,
             @RequestBody PracticeSubmitRequest request) {
-        System.out.println("request = " + request.getProblemId());
-
-        PracticeSubmitResponse response = practiceService.submitPractice(storeId, request);
+        PracticeSubmitResponse response = practiceService.submitPractice(SecurityUtil.getCurrentUserId(), request);
         return ResponseEntity.ok(ApiResponse.success(response));
     }
 
