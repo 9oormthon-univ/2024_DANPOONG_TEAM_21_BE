@@ -1,8 +1,10 @@
 package com.jojoidu.book.easy.practice.controller;
 
 import com.jojoidu.book.easy.global.dto.ApiResponse;
+import com.jojoidu.book.easy.global.util.SecurityUtil;
 import com.jojoidu.book.easy.practice.dto.PracticeSubmitRequest;
 import com.jojoidu.book.easy.practice.dto.PracticeSubmitResponse;
+import com.jojoidu.book.easy.practice.dto.ProblemListResDto;
 import com.jojoidu.book.easy.practice.dto.ProblemResponse;
 import com.jojoidu.book.easy.practice.service.PracticeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,5 +40,12 @@ public class PracticeController {
 
         PracticeSubmitResponse response = practiceService.submitPractice(storeId, request);
         return ResponseEntity.ok(ApiResponse.success(response));
+    }
+
+    @GetMapping("/completed")
+    @Operation(summary = "실습 완료 목록", description = "유저의 실습 완료 기록을 받아옵니다.")
+    public ResponseEntity<ApiResponse<ProblemListResDto>> getCompletedList() {
+        Long userId = SecurityUtil.getCurrentUserId();
+        return ResponseEntity.ok(ApiResponse.success(practiceService.getCompletedList(userId)));
     }
 }

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (code) {
         console.log('Authorization code:', code);
-        fetch(`http://localhost:8080/login/oauth2/kakao?code=${code}`, {
+        fetch(`http://localhost:8080/api/v1/login/oauth2/kakao?code=${code}`, {
             method: 'POST'
         }).then(response => response.json())
             .then(data => {
