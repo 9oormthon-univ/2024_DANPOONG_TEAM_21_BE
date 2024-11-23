@@ -9,7 +9,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/login/**")
+		registry.addResourceHandler("/static/login/**")
 			.addResourceLocations("classpath:/static/login/")
 			.setCachePeriod(3600)
 			.resourceChain(true)
