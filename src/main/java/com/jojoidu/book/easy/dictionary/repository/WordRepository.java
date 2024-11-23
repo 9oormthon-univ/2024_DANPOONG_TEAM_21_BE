@@ -11,10 +11,6 @@ import com.jojoidu.book.easy.dictionary.entity.Word;
 import com.jojoidu.book.easy.dictionary.entity.WordType;
 
 public interface WordRepository extends JpaRepository<Word, Long>{
-
-	List<Word> findByType(WordType type);
-
-
 	// 전체 검색 (ALL)
 	List<Word> findByWordContainingOrDescriptionContaining(String wordKeyword, String descriptionKeyword);
 
