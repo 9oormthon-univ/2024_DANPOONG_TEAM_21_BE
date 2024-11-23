@@ -1,7 +1,6 @@
 package com.jojoidu.book.easy.store.controller;
 
 
-import com.jojoidu.book.easy.auth.docs.LoginAuthExceptionDocs;
 import com.jojoidu.book.easy.global.annotation.ApiErrorExceptionsExample;
 import com.jojoidu.book.easy.global.dto.ApiResponse;
 import com.jojoidu.book.easy.store.docs.StoreSearchExceptionDocs;
@@ -12,10 +11,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +33,7 @@ public class StoreController {
         List<StoreResponse> stores = storeService.getStores(mode);
         return ResponseEntity.ok(ApiResponse.success(stores));
     }
+
+
 
 }
