@@ -9,15 +9,19 @@ import lombok.Getter;
 import java.lang.reflect.Field;
 import java.util.Objects;
 
-import static com.jojoidu.book.easy.global.consts.EasyStatic.*;
+import static com.jojoidu.book.easy.global.consts.EasyStatic.BAD_REQUEST;
+import static com.jojoidu.book.easy.global.consts.EasyStatic.NOT_FOUND;
 
 @Getter
 @AllArgsConstructor
-public enum StoreErrorCode implements BaseErrorCode {
+public enum MenuErrorCode implements BaseErrorCode {
 
-    INVALID_MODE(BAD_REQUEST, "USER_400_1", "잘못된 모드 요청입니다."),
-    INVALID_STORE_ID(BAD_REQUEST, "USER_400_2", "유효하지 않은 업종 ID입니다."),
-    STORE_NOT_FOUND(NOT_FOUND, "USER_404_1", "업종를 찾을 수 없습니다.");
+    MENU_NOT_FOUND(NOT_FOUND, "MENU_404_1", "해당 Menu를 찾을 수 없습니다."),
+    OPTION_NOT_FOUND(NOT_FOUND, "MENU_404_2", "해당 Option을 찾을 수 없습니다."),
+    INVALID_OPTION_FOR_MENU(BAD_REQUEST, "MENU_400_1", "해당 Option은 요청된 Menu와 연관되지 않습니다."),
+    INVALID_MENU_ID(BAD_REQUEST, "MENU_400_2", "유효하지 않은 Menu ID입니다."),
+    INVALID_CATEGORY(BAD_REQUEST, "MENU_400_3", "유효하지 않은 Menu ID입니다."),
+    INVALID_OPTION_ID(BAD_REQUEST, "MENU_400_4", "유효하지 않은 Option ID입니다.");
 
     private final Integer status;
     private final String code;

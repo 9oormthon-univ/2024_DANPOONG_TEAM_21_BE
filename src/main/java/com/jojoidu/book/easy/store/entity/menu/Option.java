@@ -2,20 +2,18 @@ package com.jojoidu.book.easy.store.entity.menu;
 
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Option {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "option_id", nullable = false)
-    private Long optionId;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "menu_id", nullable = false)
@@ -30,11 +28,15 @@ public class Option {
     @Column(name = "option_title", nullable = false)
     private String optionTitle;
 
+    @Column(name = "option_image_url")
+    private String imageUrl;
+
     @Builder
-    public Option(Menu menu, String optionName, Integer optionPrice, String optionTitle) {
+    public Option(Menu menu, String optionName, Integer optionPrice, String optionTitle, String imageUrl) {
         this.menu = menu;
         this.optionName = optionName;
         this.optionPrice = optionPrice;
         this.optionTitle = optionTitle;
+        this.imageUrl = imageUrl;
     }
 }
