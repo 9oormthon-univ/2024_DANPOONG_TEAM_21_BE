@@ -18,7 +18,7 @@ public class Solution {
     @Column(nullable = false)
     private Long questionId;
 
-    @OneToMany(mappedBy = "submission", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "solution", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AnswerEntity> answers;
 
     @Entity
