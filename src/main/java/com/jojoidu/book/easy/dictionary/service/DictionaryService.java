@@ -22,13 +22,9 @@ public class DictionaryService {
 		if (type == WordReqType.ALL) {
 			dto.setByWords(wordRepository.findByWordContainingOrDescriptionContaining(keyword, keyword));
 		} else {
-			dto.setByWords(wordRepository.findByType(WordType.from(type)));
-			dto.setByWords(wordRepository.findByTypeAndWordContainingOrTypeAndDescriptionContaining(
-				WordType.from(type), keyword,
-				WordType.from(type), keyword
-			));
+			dto.setByWords(wordRepository.findByTypeAndKeywordInWordOrDescription(
+				WordType.from(type), keyword));
 		}
 		return dto;
 	}
-
 }
