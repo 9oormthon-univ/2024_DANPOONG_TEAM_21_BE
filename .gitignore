@@ -37,3 +37,7 @@ out/
 .vscode/
 .DS_Store
 */.DS_Store
+
+application.properties
+application-dev.yml
+application-prod.yml
