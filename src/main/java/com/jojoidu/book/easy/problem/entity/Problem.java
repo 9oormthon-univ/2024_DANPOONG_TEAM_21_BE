@@ -1,6 +1,6 @@
 package com.jojoidu.book.easy.problem.entity;
 
-import com.jojoidu.book.easy.store.entity.Store;
+import com.jojoidu.book.easy.store.entity.store.Store;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

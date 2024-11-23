@@ -1,6 +1,6 @@
 package com.jojoidu.book.easy.problem.entity;
 
-import com.jojoidu.book.easy.menu.entity.Menu;
+import com.jojoidu.book.easy.store.entity.menu.Menu;
 import jakarta.persistence.*;
 import lombok.*;
 

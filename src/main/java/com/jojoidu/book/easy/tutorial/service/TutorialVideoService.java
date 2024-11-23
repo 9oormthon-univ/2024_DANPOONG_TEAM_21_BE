@@ -1,8 +1,10 @@
-package com.jojoidu.book.easy.tutorials.service;
+package com.jojoidu.book.easy.tutorial.service;
 
-import com.jojoidu.book.easy.tutorials.dto.VideoResponse;
-import com.jojoidu.book.easy.tutorials.entity.Video;
-import com.jojoidu.book.easy.tutorials.repository.TutorialVideoRepository;
+import com.jojoidu.book.easy.tutorial.dto.VideoResponse;
+import com.jojoidu.book.easy.tutorial.entity.Video;
+import com.jojoidu.book.easy.tutorial.exception.TutorialErrorCode;
+import com.jojoidu.book.easy.tutorial.exception.TutorialException;
+import com.jojoidu.book.easy.tutorial.repository.TutorialVideoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,9 @@ public class TutorialVideoService {
     public List<VideoResponse> getVideoResponses() {
         // 데이터베이스에서 Video 엔티티 조회
         List<Video> videos = tutorialVideoRepository.findAll();
+        if (videos.isEmpty()) {
+            throw new TutorialException(TutorialErrorCode.VIDEO_NOT_FOUND);
+        }
 
         // Video 엔티티를 VideoResponse DTO로 변환
         return videos.stream()

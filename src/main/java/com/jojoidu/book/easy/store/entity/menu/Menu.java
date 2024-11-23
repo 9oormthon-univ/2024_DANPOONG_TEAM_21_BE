@@ -1,4 +1,4 @@
-package com.jojoidu.book.easy.menu.entity;
+package com.jojoidu.book.easy.store.entity.menu;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jojoidu.book.easy.store.entity.Store;
+import com.jojoidu.book.easy.store.entity.store.Store;
 
 @Entity
 @Getter

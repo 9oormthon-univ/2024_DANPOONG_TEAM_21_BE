@@ -1,4 +1,4 @@
-package com.jojoidu.book.easy.menu.entity;
+package com.jojoidu.book.easy.store.entity.menu;
 
 
 import jakarta.persistence.*;

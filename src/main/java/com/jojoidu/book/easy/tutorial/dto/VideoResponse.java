@@ -1,4 +1,4 @@
-package com.jojoidu.book.easy.tutorials.dto;
+package com.jojoidu.book.easy.tutorial.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -8,10 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 public class VideoResponse {
 
-    @Schema(description = "상점 ID", example = "1")
+    @Schema(description = "업종 ID", example = "1")
     private Long storeId;
 
-    @Schema(description = "상점 이름", example = "바비든든")
+    @Schema(description = "업종 이름", example = "패스트푸드")
     private String storeName;
 
     @Schema(description = "영상 URL", example = "https://www.youtube.com/watch?v=123456")
