@@ -9,7 +9,7 @@ import lombok.Data;
 public class PracticeSubmitResponse {
 
     @Schema(description = "문제 ID", example = "1")
-    private Long questionId;
+    private Long problemId;
 
     @Schema(description = "메뉴 결과", example = "true")
     private Boolean menuResult;

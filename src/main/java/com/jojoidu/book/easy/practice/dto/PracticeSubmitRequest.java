@@ -14,7 +14,7 @@ public class PracticeSubmitRequest {
     @NotNull
     @Schema(description = "문제 ID", example = "1")
     @JsonProperty("question_id")
-    private Long questionId;
+    private Long problemId;
 
     @Schema(description = "답변 리스트")
     private List<Answer> answers;

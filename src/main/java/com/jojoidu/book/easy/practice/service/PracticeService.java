@@ -14,7 +14,6 @@ import com.jojoidu.book.easy.practice.repository.SolutionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -32,7 +31,7 @@ public class PracticeService {
     }
 
     public PracticeSubmitResponse submitPractice(Long storeId, PracticeSubmitRequest request) {
-        Solution solution = solutionRepository.findById(request.getQuestionId())
+        Solution solution = solutionRepository.findById(request.getProblemId())
                 .orElseThrow(() -> new SolutionException((SolutionErrorCode.SOLUTION_NOT_FOUND)));
 
         List<PracticeSubmitRequest.Answer.Menu> submittedMenus = request.getAnswers().get(0).getMenus();
@@ -45,7 +44,7 @@ public class PracticeService {
 
         // 결과 반환
         return new PracticeSubmitResponse(
-                request.getQuestionId(),
+                request.getProblemId(),
                 menuResult,
                 optionResult,
                 amountResult

@@ -34,7 +34,7 @@ public class PracticeController {
     public ResponseEntity<ApiResponse<PracticeSubmitResponse>> submitPractice(
             @Parameter(description = "Store ID", example = "1") @PathVariable Long storeId,
             @RequestBody PracticeSubmitRequest request) {
-        System.out.println("request = " + request.getQuestionId());
+        System.out.println("request = " + request.getProblemId());
 
         PracticeSubmitResponse response = practiceService.submitPractice(storeId, request);
         return ResponseEntity.ok(ApiResponse.success(response));
