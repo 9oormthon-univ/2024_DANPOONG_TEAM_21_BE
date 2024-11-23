@@ -2,6 +2,7 @@ package com.jojoidu.book.easy.store.controller;
 
 import com.jojoidu.book.easy.global.annotation.ApiErrorExceptionsExample;
 import com.jojoidu.book.easy.global.dto.ApiResponse;
+import com.jojoidu.book.easy.store.docs.MenuListExceptionDocs;
 import com.jojoidu.book.easy.store.docs.StoreSearchExceptionDocs;
 import com.jojoidu.book.easy.store.dto.MenuDetailsResponse;
 import com.jojoidu.book.easy.store.dto.MenuListResponse;
@@ -37,6 +38,7 @@ public class StoreController {
 
     @GetMapping("/{storeId}/menus")
     @Operation(summary = "설명/실습 업종 메뉴 조회", description = "설명/실습 가능한 업종의 메뉴를 조회합니다.")
+    @ApiErrorExceptionsExample(MenuListExceptionDocs.class)
     public ResponseEntity<ApiResponse<MenuListResponse>> getMenuList(
             @Parameter(description = "모드", example = "explain/practice")
             @RequestParam(name = "mode") String mode,
@@ -51,6 +53,7 @@ public class StoreController {
 
     @GetMapping("/{storeId}/menus/{menuId}")
     @Operation(summary = "설명/실습 업종 메뉴 상세 조회", description = "선택한 메뉴의 상세내용을 조회합니다.")
+    @ApiErrorExceptionsExample(MenuListExceptionDocs.class)
     public ResponseEntity<ApiResponse<MenuDetailsResponse>> getMenuDetails(
             @Parameter(description = "모드", example = "explain/practice")
             @RequestParam(name = "mode") String mode,
