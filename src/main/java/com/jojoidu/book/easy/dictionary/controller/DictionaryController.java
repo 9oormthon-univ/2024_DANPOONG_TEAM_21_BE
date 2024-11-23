@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jojoidu.book.easy.dictionary.entity.WordType;
+import com.jojoidu.book.easy.dictionary.dto.WordReqType;
+import com.jojoidu.book.easy.dictionary.dto.WordTypeResDto;
+
+import com.jojoidu.book.easy.dictionary.service.DictionaryService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -15,9 +18,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/dictionary")
 public class DictionaryController {
-	@GetMapping("/")
-	public String getDictionary(@RequestParam WordType type,
-		@RequestParam(required = true) String keyword) {
-		return "dictionary";
+
+	private final DictionaryService dictionaryService;
+	@GetMapping
+	public WordTypeResDto getDictionary(@RequestParam WordReqType type,
+		@RequestParam(required = false) String keyword) {
+		return dictionaryService.getDictionary(type, keyword);
 	}
 }
