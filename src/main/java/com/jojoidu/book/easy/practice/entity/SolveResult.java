@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -25,9 +27,6 @@ public class SolveResult {
     @JoinColumn(name = "problem_id", nullable = false) // 문제와의 관계
     private Problem problem;
 
-    @Column(name = "total_result", nullable = false)
-    private Boolean totalResult;
-
     @Column(name = "menu_result", nullable = false)
     private Boolean menuResult;
 
@@ -38,13 +37,12 @@ public class SolveResult {
     private Boolean amountResult;
 
     @Column(name = "solved_date", nullable = false)
-    private String solvedDate;
+    private LocalDateTime solvedDate;
 
     @Builder
-    public SolveResult(User user, Problem problem, Boolean totalResult, Boolean menuResult, Boolean optionResult, Boolean amountResult, String solvedDate) {
+    public SolveResult(User user, Problem problem, Boolean totalResult, Boolean menuResult, Boolean optionResult, Boolean amountResult, LocalDateTime solvedDate) {
         this.user = user;
         this.problem = problem;
-        this.totalResult = totalResult;
         this.menuResult = menuResult;
         this.optionResult = optionResult;
         this.amountResult = amountResult;
