@@ -1,17 +1,21 @@
 package com.jojoidu.book.easy.menu.entity;
 
-import com.jojoidu.book.easy.problem.entity.Solution;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.jojoidu.book.easy.store.entity.Store;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class Menu {
 
     @Id
@@ -32,8 +36,11 @@ public class Menu {
     private String imageUrl;
 
     @OneToMany(mappedBy = "menu")
-    private List<Option> options;
+    private List<Option> options = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id", nullable = false)
+    private Store store;
 
     @Builder
     public Menu(String name, Integer price, String description, String imageUrl, List<Option> options) {
