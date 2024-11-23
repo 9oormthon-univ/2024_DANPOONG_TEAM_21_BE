@@ -105,18 +105,39 @@ VALUES (24, 3, '사이드', '사이다', 1500);INSERT INTO menu (menu_id, store_
 -- 메뉴 ID가 2이라고 가정 (menu_id = 2)
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (2, '순하게', 0, '맵기 옵션(필수)', NULL);
-
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (2, '약간 맵게', 0, '맵기 옵션(필수)', NULL);
-
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (2, '아주 맵게', 0, '맵기 옵션(필수)', NULL);
-
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (2, '면 사리', 6000, '추가 옵션(선택)', NULL);
-
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (2, '굴 50g', 8000, '추가 옵션(선택)', NULL);
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (14, '얼음 적게', 0, '무료 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (14, '얼음 많이', 0, '무료 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (14, '덜달게', 0, '무료 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (14, '샷 추가', 300, '유료 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (14, '휘핑 추가', 500, '유료 옵션', NULL);
+
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (20, '스몰(S)', 1000, '사이즈 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (20, '미디움(M)', 1500, '사이즈 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (20, '라지(L)', 2000, '사이즈 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (20, '소금 O', 0, '재료 옵션', NULL);
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (20, '소금 X', 0, '재료 옵션', NULL);
+
+
 
 INSERT INTO problem (problem_id, store_id, problem)
 VALUES (1, 1, '굴탕면 하나 주문할게요. 맵기는 아주 맵게, 굴 50g도 추가할게요! 사이드로 먹을 닭튀김 하나도 소스랑 같이 주문해주세요.');
