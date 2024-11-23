@@ -3,6 +3,7 @@ package com.jojoidu.book.easy.problem.entity;
 import com.jojoidu.book.easy.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,4 +36,18 @@ public class SolveResult {
 
     @Column(name = "amount_result", nullable = false)
     private Boolean amountResult;
+
+    @Column(name = "solved_date", nullable = false)
+    private String solvedDate;
+
+    @Builder
+    public SolveResult(User user, Problem problem, Boolean totalResult, Boolean menuResult, Boolean optionResult, Boolean amountResult, String solvedDate) {
+        this.user = user;
+        this.problem = problem;
+        this.totalResult = totalResult;
+        this.menuResult = menuResult;
+        this.optionResult = optionResult;
+        this.amountResult = amountResult;
+        this.solvedDate = solvedDate;
+    }
 }
