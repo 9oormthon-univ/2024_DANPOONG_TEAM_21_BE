@@ -4,6 +4,8 @@ import com.jojoidu.book.easy.menu.entity.Menu;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -28,11 +30,15 @@ public class SolutionMenu {
     @Column(name = "menu_total_price")
     private Integer menuTotalPrice;
 
+    @OneToMany(mappedBy = "solutionMenu")
+    private List<SolutionOption> solutionOption;
+
     @Builder
-    public SolutionMenu(Solution solution, Menu menu, Integer quantity, Integer menuTotalPrice) {
+    public SolutionMenu(Solution solution, Menu menu, Integer quantity, Integer menuTotalPrice, List<SolutionOption> solutionOption) {
         this.solution = solution;
         this.menu = menu;
         this.quantity = quantity;
         this.menuTotalPrice = menuTotalPrice;
+        this.solutionOption = solutionOption;
     }
 }

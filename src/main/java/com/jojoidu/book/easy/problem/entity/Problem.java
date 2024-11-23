@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,10 +26,18 @@ public class Problem {
     @Column(name = "problem", nullable = false)
     private String problem;
 
+    @OneToMany
+    private List<Solution> solution;
+
+    @OneToMany
+    private List<SolutionMenu> solutionMenu;
+
     @Builder
-    public Problem(Store store, String problem) {
+    public Problem(Store store, String problem, List<Solution> solution, List<SolutionMenu> solutionMenu) {
         this.store = store;
         this.problem = problem;
+        this.solution = solution;
+        this.solutionMenu = solutionMenu;
     }
 
 }
