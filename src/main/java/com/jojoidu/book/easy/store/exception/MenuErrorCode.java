@@ -16,11 +16,12 @@ import static com.jojoidu.book.easy.global.consts.EasyStatic.NOT_FOUND;
 @AllArgsConstructor
 public enum MenuErrorCode implements BaseErrorCode {
 
-    MENU_NOT_FOUND(NOT_FOUND, "MENU_NOT_FOUND", "해당 Menu를 찾을 수 없습니다."),
-    OPTION_NOT_FOUND(NOT_FOUND, "OPTION_NOT_FOUND", "해당 Option을 찾을 수 없습니다."),
-    INVALID_OPTION_FOR_MENU(BAD_REQUEST, "INVALID_OPTION_FOR_MENU", "해당 Option은 요청된 Menu와 연관되지 않습니다."),
-    INVALID_MENU_ID(BAD_REQUEST, "INVALID_MENU_ID", "유효하지 않은 Menu ID입니다."),
-    INVALID_OPTION_ID(BAD_REQUEST, "INVALID_OPTION_ID", "유효하지 않은 Option ID입니다.");
+    MENU_NOT_FOUND(NOT_FOUND, "MENU_404_1", "해당 Menu를 찾을 수 없습니다."),
+    OPTION_NOT_FOUND(NOT_FOUND, "MENU_404_2", "해당 Option을 찾을 수 없습니다."),
+    INVALID_OPTION_FOR_MENU(BAD_REQUEST, "MENU_400_1", "해당 Option은 요청된 Menu와 연관되지 않습니다."),
+    INVALID_MENU_ID(BAD_REQUEST, "MENU_400_2", "유효하지 않은 Menu ID입니다."),
+    INVALID_CATEGORY(BAD_REQUEST, "MENU_400_3", "유효하지 않은 Menu ID입니다."),
+    INVALID_OPTION_ID(BAD_REQUEST, "MENU_400_4", "유효하지 않은 Option ID입니다.");
 
     private final Integer status;
     private final String code;

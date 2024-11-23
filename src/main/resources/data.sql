@@ -56,3 +56,15 @@ INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
 VALUES (24, 3, '사이드', '사이다', 1500);
 INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
 VALUES (25, 3, '디저트', '아이스크림', 1200);
+
+
+-- 메뉴 ID가 1이라고 가정 (menu_id = 1)
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (1, '소', 0, '사이즈 옵션(필수)', NULL);
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (1, '중', 8000, '사이즈 옵션(필수)', NULL);
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (1, '대', 12000, '사이즈 옵션(필수)', NULL);
+

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class MenuImageResponse {
 
     @Schema(description = "옵션 ID", example = "101")
-    private Long optionId;
+    private Long menuId;
 
     @Schema(description = "이미지 URL", example = "https://groomiz.com/classroom/1.jpg")
     private String imageUrl;
