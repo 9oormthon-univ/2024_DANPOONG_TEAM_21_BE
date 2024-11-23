@@ -2,19 +2,22 @@ package com.jojoidu.book.easy.practice.service;
 
 import com.jojoidu.book.easy.practice.dto.PracticeSubmitRequest;
 import com.jojoidu.book.easy.practice.dto.PracticeSubmitResponse;
+import com.jojoidu.book.easy.practice.dto.ProblemListResDto;
 import com.jojoidu.book.easy.practice.dto.ProblemResponse;
 import com.jojoidu.book.easy.practice.entity.Problem;
 import com.jojoidu.book.easy.practice.entity.Solution;
+import com.jojoidu.book.easy.practice.entity.SolveResult;
 import com.jojoidu.book.easy.practice.exception.ProblemErrorCode;
 import com.jojoidu.book.easy.practice.exception.ProblemException;
 import com.jojoidu.book.easy.practice.exception.SolutionErrorCode;
 import com.jojoidu.book.easy.practice.exception.SolutionException;
 import com.jojoidu.book.easy.practice.repository.ProblemRepository;
 import com.jojoidu.book.easy.practice.repository.SolutionRepository;
+import com.jojoidu.book.easy.practice.repository.SolveResultRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,6 +26,7 @@ public class PracticeService {
 
     private final ProblemRepository problemRepository;
     private final SolutionRepository solutionRepository;
+    private final SolveResultRepository solveResultRepository;
 
     public ProblemResponse getProblemByStoreId(Long storeId) {
         Problem problem = problemRepository.findByStoreId(storeId)
@@ -138,5 +142,10 @@ public class PracticeService {
         }
 
         return true; // 모두 일치하면 true
+    }
+
+    public ProblemListResDto getCompletedList(Long userId) {
+        List<SolveResult> solveResults = solveResultRepository.findByUserId(userId).orElseThrow();
+        return ProblemListResDto.from(solveResults);
     }
 }
