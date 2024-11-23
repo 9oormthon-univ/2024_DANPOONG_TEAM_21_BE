@@ -1,4 +1,4 @@
-package com.jojoidu.book.easy.problem.entity;
+package com.jojoidu.book.easy.practice.entity;
 
 import com.jojoidu.book.easy.store.entity.store.Store;
 import jakarta.persistence.*;
@@ -26,18 +26,11 @@ public class Problem {
     @Column(name = "problem", nullable = false)
     private String problem;
 
-    @OneToMany
-    private List<Solution> solution;
-
-    @OneToMany
-    private List<SolutionMenu> solutionMenu;
 
     @Builder
-    public Problem(Store store, String problem, List<Solution> solution, List<SolutionMenu> solutionMenu) {
+    public Problem(Store store, String problem) {
         this.store = store;
         this.problem = problem;
-        this.solution = solution;
-        this.solutionMenu = solutionMenu;
     }
 
 }

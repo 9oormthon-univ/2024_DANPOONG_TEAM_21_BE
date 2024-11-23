@@ -15,9 +15,9 @@ import static com.jojoidu.book.easy.global.consts.EasyStatic.*;
 @AllArgsConstructor
 public enum StoreErrorCode implements BaseErrorCode {
 
-    INVALID_MODE(BAD_REQUEST, "USER_400_1", "잘못된 모드 요청입니다."),
-    INVALID_STORE_ID(BAD_REQUEST, "USER_400_2", "유효하지 않은 업종 ID입니다."),
-    STORE_NOT_FOUND(NOT_FOUND, "USER_404_1", "업종를 찾을 수 없습니다.");
+    INVALID_MODE(BAD_REQUEST, "STORE_400_1", "잘못된 모드 요청입니다."),
+    INVALID_STORE_ID(BAD_REQUEST, "STORE_400_2", "유효하지 않은 업종 ID입니다."),
+    STORE_NOT_FOUND(NOT_FOUND, "STORE_404_1", "업종를 찾을 수 없습니다.");
 
     private final Integer status;
     private final String code;

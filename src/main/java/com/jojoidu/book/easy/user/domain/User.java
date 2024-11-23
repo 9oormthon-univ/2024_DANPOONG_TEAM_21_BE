@@ -1,6 +1,6 @@
 package com.jojoidu.book.easy.user.domain;
 
-import com.jojoidu.book.easy.problem.entity.SolveResult;
+import com.jojoidu.book.easy.practice.entity.SolveResult;
 import jakarta.persistence.*;
 import org.apache.commons.validator.routines.EmailValidator;
 import lombok.AccessLevel;

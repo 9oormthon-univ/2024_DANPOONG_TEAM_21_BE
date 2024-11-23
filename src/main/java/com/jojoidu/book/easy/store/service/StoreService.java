@@ -77,7 +77,7 @@ public class StoreService {
     }
 
 
-    public MenuDetailsResponse getMenuDetails(String mode, Long menuId) {
+    public MenuDetailsResponse getMenuDetails(String mode, Long menuId, Long storeId, String category) {
         // mode 검증
         if (!PlayMode.isValid(mode)) {
             throw new StoreException(StoreErrorCode.INVALID_MODE);
@@ -85,6 +85,11 @@ public class StoreService {
         // menuId 검증
         if (menuId <= 0) {
             throw new StoreException(StoreErrorCode.INVALID_STORE_ID);
+        }
+        // menuId가 해당 storeId와 category에 존재하는지 검증
+        boolean exists = menuRepository.existsByIdAndStoreIdAndCategory(menuId, storeId, category);
+        if (!exists) {
+            throw new MenuException(MenuErrorCode.MENU_NOT_FOUND_IN_CATEGORY_OR_STORE);
         }
         // 메뉴 조회
         Menu menu = menuRepository.findById(menuId)

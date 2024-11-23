@@ -1,4 +1,4 @@
-package com.jojoidu.book.easy.problem.entity;
+package com.jojoidu.book.easy.practice.entity;
 
 import com.jojoidu.book.easy.user.domain.User;
 import jakarta.persistence.*;

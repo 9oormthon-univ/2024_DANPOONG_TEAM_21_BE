@@ -50,6 +50,11 @@ VALUES
     ('FOOD', '픽업', '주문한 음식을 찾아가는 것',NOW(),NOW()),
     ('FOOD', '후렌치후라이', '감자튀김',NOW(),NOW());
 
+-- 메뉴 삽입
+INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
+VALUES (1, 1, '시즌메뉴', '방어 사시미', 40000);
+INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
+VALUES (2, 1, '시즌메뉴', '굴탕면', 21000);
 INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
 VALUES (3, 1, '시즌메뉴', '고구마맛탕', 12000);
 INSERT INTO menu (menu_id, store_id, category, menu_name, menu_price)
@@ -106,3 +111,7 @@ VALUES (1, '중', 8000, '사이즈 옵션(필수)', NULL);
 
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (1, '대', 12000, '사이즈 옵션(필수)', NULL);
+
+INSERT INTO problem (problem_id, store_id, problem)
+VALUES (1, 1, '굴탕면 하나 주문할게요. 맵기는 아주 맵게, 굴 50g도 추가할게요! 사이드로 먹을 닭튀김 하나도 소스랑 같이 주문해주세요.');
+
