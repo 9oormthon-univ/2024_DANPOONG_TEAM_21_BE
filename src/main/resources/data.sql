@@ -2,7 +2,7 @@ INSERT INTO store (id, store_name) VALUES (1, '음식점');
 INSERT INTO store (id, store_name) VALUES (2, '카페');
 INSERT INTO store (id, store_name) VALUES (3, '패스트푸드');
 
-
+INSERT INTO video (store_id, video_url) VALUES (1, 'https://www.youtube.com/watch?v=BghcDdmeToM');
 INSERT INTO video (store_id, video_url) VALUES (2, 'https://youtu.be/-_FS661Q1nw');
 INSERT INTO video (store_id, video_url) VALUES (3, 'https://youtu.be/i6tRr8r-2l0');
 
@@ -102,16 +102,38 @@ VALUES (24, 3, '사이드', '사이다', 1500);INSERT INTO menu (menu_id, store_
                                    VALUES (25, 3, '디저트', '아이스크림', 1200);
 
 
--- 메뉴 ID가 1이라고 가정 (menu_id = 1)
+-- 메뉴 ID가 2이라고 가정 (menu_id = 2)
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (1, '소', 0, '사이즈 옵션(필수)', NULL);
+VALUES (2, '순하게', 0, '맵기 옵션(필수)', NULL);
 
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (1, '중', 8000, '사이즈 옵션(필수)', NULL);
+VALUES (2, '약간 맵게', 0, '맵기 옵션(필수)', NULL);
 
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (1, '대', 12000, '사이즈 옵션(필수)', NULL);
+VALUES (2, '아주 맵게', 0, '맵기 옵션(필수)', NULL);
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (2, '면 사리', 6000, '추가 옵션(선택)', NULL);
+
+INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
+VALUES (2, '굴 50g', 8000, '추가 옵션(선택)', NULL);
 
 INSERT INTO problem (problem_id, store_id, problem)
 VALUES (1, 1, '굴탕면 하나 주문할게요. 맵기는 아주 맵게, 굴 50g도 추가할게요! 사이드로 먹을 닭튀김 하나도 소스랑 같이 주문해주세요.');
+
+--문제 정답
+INSERT INTO solution (id, question_id) VALUES (1, 1);
+INSERT INTO solution$answer_entity (id, solution_id, total_price) VALUES
+    (1, 1, 37000);
+INSERT INTO solution$answer_entity$menu_entity (id, answer_id, menu_name, menu_quantity, menu_price) VALUES
+                                                                                  (1, 1, '굴탕면', 1, 29000),
+                                                                                  (2, 1, '닭튀김', 1, 8000);
+INSERT INTO solution$answer_entity$menu_entity$option_group_entity (id, menu_id, option_title) VALUES
+                                                                (1, 1, '추가 옵션'),
+                                                                (2, 1, '맵기 옵션'),
+                                                                (3, 2, '소스 옵션(선택)');
+INSERT INTO solution$answer_entity$menu_entity$option_group_entity$option_e (id, option_group_id, option_name, option_price) VALUES
+                                                                               (1, 1, '굴 50g', 8000),
+                                                                               (2, 2, '아주 맵게', 0),
+                                                                               (3, 3, '소스 주세요', 0);
 

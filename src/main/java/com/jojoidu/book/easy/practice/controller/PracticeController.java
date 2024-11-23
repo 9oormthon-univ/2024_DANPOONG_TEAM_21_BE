@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class PracticeController {
     private final PracticeService practiceService;
 
-    @Operation(summary = "Fetch problem by storeId")
+    @Operation(summary = "실습 문제 출제")
     @GetMapping("/stores/{storeId}/problem")
     public ResponseEntity<ApiResponse<ProblemResponse>> getProblem(
             @Parameter(description = "Store ID", example = "1")
@@ -36,6 +36,7 @@ public class PracticeController {
     public ResponseEntity<ApiResponse<PracticeSubmitResponse>> submitPractice(
             @Parameter(description = "Store ID", example = "1") @PathVariable Long storeId,
             @RequestBody PracticeSubmitRequest request) {
+        System.out.println("request = " + request.getQuestionId());
 
         PracticeSubmitResponse response = practiceService.submitPractice(storeId, request);
         return ResponseEntity.ok(ApiResponse.success(response));
