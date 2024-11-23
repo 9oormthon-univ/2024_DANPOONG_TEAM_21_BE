@@ -71,13 +71,13 @@ VALUES
     (16, 2, '시즌메뉴', '꿀밤라떼', 7500, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/cafe/chestnut.png'),
     (17, 3, '햄버거', '비프치즈버거', 6500, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/befbugger.png'),
     (18, 3, '햄버거', '치킨마일드버거', 7200, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/chibugger.png'),
-    (19, 3, '햄버거', '핫포크버거', 6000, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/forkbugger.png"),
-    (20, 3, '사이드', '감자튀김', 1500, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_m.png"),
-    (21, 3, '사이드', '치즈스틱', 1500, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/chesse.png"),
-    (22, 3, '사이드', '스윗소스', 300, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/sweetsource.png"),
-    (23, 3, '음료', '콜라', 1500, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/coke_m.png"),
-    (24, 3, '사이드', '사이다', 1500,"https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/splite_m.png"),
-    (25, 3, '디저트', '아이스크림', 1200, "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/ice.png");
+    (19, 3, '햄버거', '핫포크버거', 6000, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/forkbugger.png'),
+    (20, 3, '사이드', '감자튀김', 1500, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_m.png'),
+    (21, 3, '사이드', '치즈스틱', 1500, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/chesse.png'),
+    (22, 3, '사이드', '스윗소스', 300, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/sweetsource.png'),
+    (23, 3, '음료', '콜라', 1500, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/coke_m.png'),
+    (24, 3, '사이드', '사이다', 1500,'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/splite_m.png'),
+    (25, 3, '디저트', '아이스크림', 1200, 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/ice.png');
 
 
 -- 메뉴 ID가 2이라고 가정 (menu_id = 2)
@@ -105,11 +105,11 @@ VALUES (14, '휘핑 추가', 500, '유료 옵션', NULL);
 
 
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (20, '스몰(S)', 1000, '사이즈 옵션', "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_s.png");
+VALUES (20, '스몰(S)', 1000, '사이즈 옵션', 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_s.png');
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (20, '미디움(M)', 1500, '사이즈 옵션', "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_m.png");
+VALUES (20, '미디움(M)', 1500, '사이즈 옵션', 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_m.png');
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
-VALUES (20, '라지(L)', 2000, '사이즈 옵션', "https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_l.png");
+VALUES (20, '라지(L)', 2000, '사이즈 옵션', 'https://ordereasybucket.s3.ap-northeast-2.amazonaws.com/kiosk/fastfood/fry_l.png');
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
 VALUES (20, '소금 O', 0, '재료 옵션', NULL);
 INSERT INTO option (menu_id, option_name, option_price, option_title, option_image_url)
