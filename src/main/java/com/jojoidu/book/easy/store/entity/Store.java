@@ -14,7 +14,7 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "store_name", nullable = false)
     private String name;
 
 }
