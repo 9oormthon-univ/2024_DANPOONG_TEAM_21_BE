@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
+import static org.apache.commons.io.FilenameUtils.getExtension;
+
 @RequiredArgsConstructor
 @Transactional
 @Service
@@ -51,7 +53,7 @@ public class ImageService {
             throw new MenuException(MenuErrorCode.INVALID_OPTION_FOR_MENU);
         }
 
-        String fileName = UUID.randomUUID() + imageFile.getOriginalFilename();
+        String fileName = "menu_" + menuId + "_" + getExtension(imageFile.getOriginalFilename());
         // 파일데이터와 파일명 넘겨서 S3에 저장
         String imageUrl = s3Service.uploadFile(imageFile, fileName);
 
